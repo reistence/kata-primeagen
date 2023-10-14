@@ -1,8 +1,8 @@
 // O(log n)
-
 export default function bs_list(haystack: number[], needle: number): boolean {
     let lo = 0;
     let hi = haystack.length;
+
     do {
         let m = Math.floor(lo + (hi - lo) / 2);
         let half = haystack[m];
