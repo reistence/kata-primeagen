@@ -126,8 +126,8 @@ export default class DoublyLinkedList<T> {
             if (current) {
                 const removed = current.value;
                 this.head = current.next;
-                if (this.head) {
-                    this.head.prev = null; // Update the prev reference of the new head
+                if (current) {
+                    current.prev = null;
                 }
                 this.length--;
                 return removed;
