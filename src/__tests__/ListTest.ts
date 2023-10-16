@@ -2,34 +2,30 @@ export function test_list(list: List<number>): void {
     list.append(5);
     list.append(7);
     list.append(9);
-    // expect(list.remove(7)).toEqual(7);
 
     expect(list.get(2)).toEqual(9);
-    expect(list.get(0)).toEqual(5);
-    list.insertAt(10, 2);
-    // list.insertAt(10, 2);
+    expect(list.removeAt(1)).toEqual(7);
+    expect(list.length).toEqual(2);
 
-    expect(list.get(2)).toEqual(10);
-    list.insertAt(1, 3);
-    expect(list.get(3)).toEqual(1);
+    // LIST 9-7
 
-    // expect(list.removeAt(1)).toEqual(7);
-    // expect(list.length).toEqual(2);
+    list.append(11);
+    expect(list.removeAt(1)).toEqual(9);
+    // LIST 5-11
 
-    // list.append(11);
-    // expect(list.removeAt(1)).toEqual(9);
-    // expect(list.remove(9)).toEqual(undefined);
-    // expect(list.removeAt(0)).toEqual(5);
-    // expect(list.removeAt(0)).toEqual(11);
-    // expect(list.length).toEqual(0);
+    expect(list.remove(9)).toEqual(undefined);
+    expect(list.removeAt(0)).toEqual(5); // 5 - 11
 
-    // list.prepend(5);
-    // list.prepend(7);
-    // list.prepend(9);
+    expect(list.removeAt(0)).toEqual(11);
+    expect(list.length).toEqual(0);
 
-    // expect(list.get(2)).toEqual(5);
-    // expect(list.get(0)).toEqual(9);
+    list.prepend(5);
+    list.prepend(7);
+    list.prepend(9);
+
+    expect(list.get(2)).toEqual(5);
+    expect(list.get(0)).toEqual(9);
     expect(list.remove(9)).toEqual(9);
-    // expect(list.length).toEqual(2);
-    // expect(list.get(0)).toEqual(7);
+    expect(list.length).toEqual(2);
+    expect(list.get(0)).toEqual(7);
 }

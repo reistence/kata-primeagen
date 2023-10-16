@@ -116,6 +116,39 @@ export default class DoublyLinkedList<T> {
     }
 
     removeAt(idx: number): T | undefined {
+        let i = 0;
+        let current = this.head;
+        let previousNode = null;
+        if (idx < 0 || idx >= this.length) {
+            return;
+        }
+        if (idx === 0) {
+            if (current) {
+                const removed = current.value;
+                this.head = current.next;
+                if (this.head) {
+                    this.head.prev = null; // Update the prev reference of the new head
+                }
+                this.length--;
+                return removed;
+            }
+        } else {
+            while (i < idx && current) {
+                previousNode = current;
+                current = current.next;
+                i++;
+            }
+            if (current) {
+                const removed = current.value;
+                if (previousNode) {
+                    previousNode.next = current.next;
+                    current.prev = previousNode;
+                }
+                this.length--;
+                return removed;
+            }
+        }
+
         return undefined;
     }
 }
