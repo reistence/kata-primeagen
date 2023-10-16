@@ -8,16 +8,11 @@ export default class SinglyLinkedList<T> {
 
     prepend(item: T): void {
         let node = new Node(item);
-        let current;
-
         if (this.head === null) {
             this.head = node;
         } else {
-            current = this.head;
-            let nextNode = current.next;
-
+            node.next = this.head;
             this.head = node;
-            node.next = nextNode;
         }
         this.length++;
     }
@@ -56,7 +51,7 @@ export default class SinglyLinkedList<T> {
             this.head = node;
         } else {
             current = this.head;
-            if (current != undefined) {
+            if (current != null) {
                 while (current?.next) {
                     current = current.next;
                 }
@@ -69,9 +64,10 @@ export default class SinglyLinkedList<T> {
     remove(item: T): T | undefined {
         let current = this.head;
         let previousNode = null;
-
         if (current?.value === item) {
             this.head = current.next;
+            this.length--;
+            return current.value;
         } else {
             while (current) {
                 if (current.next?.value === item) {
@@ -83,22 +79,19 @@ export default class SinglyLinkedList<T> {
             if (previousNode && previousNode.next) {
                 const removedNode = previousNode.next;
                 previousNode.next = removedNode?.next;
+                this.length--;
                 return removedNode?.value;
             }
         }
-        this.length--;
         return undefined;
     }
 
     get(idx: number): T | undefined {
         let i = 0;
-
         if (idx < 0 || idx >= this.length) {
             return undefined;
         }
-
         let current = this.head;
-
         while (i < idx) {
             if (current) {
                 current = current?.next;
@@ -110,40 +103,53 @@ export default class SinglyLinkedList<T> {
         }
         return undefined;
     }
+
     removeAt(idx: number): T | undefined {
         if (idx < 0 || idx >= this.length) {
-            return undefined; // Index out of bounds
+            return undefined;
         }
-
         if (idx === 0) {
             if (this.head) {
                 const removedValue = this.head.value;
-                this.head = this.head.next;
+                this.head = this.head?.next;
                 this.length--;
+                if (this.length < 0) {
+                    this.length = 0;
+                }
                 return removedValue;
             }
         } else {
             let current = this.head;
             let previousNode = null;
-
             let i = 0;
             while (i < idx && current) {
                 previousNode = current;
                 current = current.next;
                 i++;
             }
-
             if (current) {
                 const removedValue = current.value;
                 if (previousNode) {
                     previousNode.next = current.next;
                 }
                 this.length--;
+                if (this.length < 0) {
+                    this.length = 0;
+                }
                 return removedValue;
             }
         }
+        return undefined;
+    }
 
-        return undefined; // Index not found
+    print() {
+        let current = this.head;
+        let arr = [];
+        while (current) {
+            arr.push(current.value);
+            current = current.next;
+        }
+        console.log(arr);
     }
 }
 
