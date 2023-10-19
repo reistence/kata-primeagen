@@ -53,28 +53,28 @@ class RingBuffer<T> {
     }
 }
 
-// let prova = new RingBuffer(10);
-// console.log("prova", prova);
-// // for (let i = 0; i < 25; i++) {
-// // let w = prova.enqueue(i);
-// //     // console.log(w);
-// // }
-// // let y = prova.pop();
-// // console.log("pop", y);
-// prova.enqueue(1);
-// prova.enqueue(2);
-// prova.enqueue(3);
-// prova.enqueue(4);
-// prova.enqueue(5);
-// prova.enqueue(6);
-// prova.enqueue(7);
-// prova.enqueue(8);
-// prova.enqueue(9);
-// prova.enqueue(10);
-// prova.enqueue(10);
-// console.log("prova", prova);
+let prova = new RingBuffer(10);
+console.log("prova", prova);
+// for (let i = 0; i < 25; i++) {
+// let w = prova.enqueue(i);
+//     // console.log(w);
+// }
+// let y = prova.pop();
+// console.log("pop", y);
+prova.enqueue(1);
+prova.enqueue(2);
+prova.enqueue(3);
+prova.enqueue(4);
+prova.enqueue(5);
+prova.enqueue(6);
+prova.enqueue(7);
+prova.enqueue(8);
+prova.enqueue(9);
+prova.enqueue(10);
+prova.enqueue(10);
+console.log("prova", prova);
 
-// let o = prova.dequeue();
-// console.log("deq", o);
-// console.log("prova", prova);
-// console.log(prova.get(10));
+let o = prova.dequeue();
+console.log("deq", o);
+console.log("prova", prova);
+console.log(prova.get(10));
