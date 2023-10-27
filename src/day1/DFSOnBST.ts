@@ -1,4 +1,4 @@
-// Deep First Search on Binary Tree
+// Deep First Search on Binary Tree O(H) || O (log n)
 
 function search(curr: BinaryNode<number> | null, needle: number): boolean {
     if (!curr) {
