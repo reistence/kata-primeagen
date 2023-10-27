@@ -2,10 +2,6 @@
 
 import Queue from "./Queue";
 
-// function walk(head: BinaryNode<number | null>,needle: number): boolean{
-
-// }
-
 export default function bfs(head: BinaryNode<number>, needle: number): boolean {
     const q = new Queue();
     q.enqueue(head);
