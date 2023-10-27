@@ -1,3 +1,5 @@
+// Deep Search
+
 function walk(curr: BinaryNode<number> | null, path: number[]): number[] {
     if (!curr) {
         return path;
