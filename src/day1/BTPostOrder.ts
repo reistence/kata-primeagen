@@ -4,12 +4,12 @@ function walk(curr: BinaryNode<number> | null, path: number[]): number[] {
     }
     //recursion
     //pre
+    // no pre ops since is postorder
     //recurse
     walk(curr.left, path);
     walk(curr.right, path);
     //post
     path.push(curr.value);
-    // no post ops since is preorder
     return path;
 }
 
