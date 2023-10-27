@@ -1,4 +1,4 @@
-class RingBuffer<T> {
+export default class RingBuffer<T> {
     public data: T[];
     private readIndex: number;
     private size: number;
