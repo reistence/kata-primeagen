@@ -60,7 +60,6 @@ export default class MinHeap {
         }
     }
 
-    //iterative version
     private heapifyDown(idx: number): void {
         const lIdx = this.leftChild(idx);
         const rIdx = this.rightChild(idx);
