@@ -1,3 +1,5 @@
+// running time O(v+e)
+
 function walk(
     graph: WeightedAdjacencyList,
     curr: number,
